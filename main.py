@@ -9,14 +9,17 @@ def extract_text(path):
     return text
 
 def extract_text_from_directory(directory):
-    text = {}
+    text = ""
     for file in os.listdir(directory):
         if file.endswith('.pdf'):
             path = os.path.join(directory, file)
-            text[file] = extract_text(path)
+            text += extract_text(path)
     return text
 
 directory = 'data'
 extracted_text = extract_text_from_directory(directory)
 
 
+output_file_path = os.path.join(directory, 'extracted_text.txt')
+with open(output_file_path, 'w') as file:
+    file.write(extracted_text)
