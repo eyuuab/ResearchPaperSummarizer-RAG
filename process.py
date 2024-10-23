@@ -11,8 +11,6 @@ def process_text(text):
     tokens = nltk.word_tokenize(cleaned_text)
     return ' '.join(tokens)
 
-
-    pass
 directory = 'data'
 input_file_path = os.path.join(directory, 'extracted_text.txt')
 
